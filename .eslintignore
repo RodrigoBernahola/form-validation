@@ -1,0 +1,20 @@
+# Archivos y carpetas a ignorar por ESLint
+
+# Código generado por webpack
+dist/
+
+# Dependencias
+node_modules/
+
+# Archivos minificados
+*.min.js
+
+# Reportes de cobertura
+coverage/
+
+# Logs
+*.log
+
+# Archivos temporales
+.tmp/
+temp/

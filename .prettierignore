@@ -1,0 +1,20 @@
+# Archivos y carpetas a ignorar por Prettier
+
+# Código generado por webpack
+dist/
+
+# Dependencias
+node_modules/
+
+# Archivos minificados
+*.min.js
+
+# Reportes de cobertura
+coverage/
+
+# Archivos de configuración específicos que no queremos formatear
+package-lock.json
+yarn.lock
+
+# Logs
+*.log
