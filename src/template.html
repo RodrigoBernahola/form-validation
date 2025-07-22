@@ -44,9 +44,11 @@
             type="text"
             required
             placeholder="Angola"
+            minlength="3"
             id="country"
             name="country"
           />
+          <span class="error" aria-live="polite"></span>
         </p>
 
         <p>
@@ -58,9 +60,12 @@
             type="text"
             required
             placeholder="1000"
+            minlength="4"
+            pattern="^\d{4,5}$"
             id="postal-code"
             name="postal"
           />
+          <span class="error" aria-live="polite"></span>
         </p>
 
         <p>
@@ -68,7 +73,14 @@
             <span>Contraseña:</span>
             <strong><abbr title="required">*</abbr></strong>
           </label>
-          <input type="password" required id="pwd" name="password" />
+          <input
+            type="password"
+            required
+            id="pwd"
+            minlength="8"
+            name="password"
+          />
+          <span class="error" aria-live="polite"></span>
         </p>
 
         <p>
@@ -76,7 +88,14 @@
             <span>Ingrese de nuevo la contraseña:</span>
             <strong><abbr title="required">*</abbr></strong>
           </label>
-          <input type="password" required id="re-pwd" name="re-password" />
+          <input
+            type="password"
+            required
+            id="re-pwd"
+            minlength="8"
+            name="re-password"
+          />
+          <span class="error" aria-live="polite"></span>
         </p>
 
         <p><button type="button">Enviar datos</button></p>

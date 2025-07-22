@@ -1,8 +1,72 @@
 body {
-  background-color: cornsilk;
+  background-color: white;
   margin: 0;
   padding: 0;
 }
 
-input:invalid {
+form label {
+  padding: 5px 0;
+  font-size: 14px;
+  color: #8bc34a;
+  max-width: 80%;
+}
+
+form label + input:focus,
+form label + input[required]:valid,
+form label + input:not(:placeholder-shown) {
+  display: block;
+}
+
+form input:invalid {
+  border: 1px solid #b92326;
+  background-color: rgba(185, 35, 38, 0.25);
+}
+
+form input:focus:invalid {
+  background-color: transparent;
+  border: 1px solid #b92326;
+}
+
+form label + input:invalid {
+  color: #b92326;
+}
+
+form input:valid {
+  border: 1px solid #8bc34a;
+  background-color: rgba(139, 195, 74, 0.25);
+}
+
+form input:focus:valid {
+  border: 1px solid #8bc34a;
+  background-color: transparent;
+}
+
+form label + input:valid {
+  color: #8bc34a;
+}
+
+form input:placeholder-shown {
+  background-color: transparent;
+  border: 1px solid #d8d8d8;
+}
+
+form input::placeholder {
+  color: #d8d8d8;
+}
+
+form input[type="button"] {
+  background-color: transparent;
+  border: 1px solid #8bc34a;
+  color: #8bc34a;
+  padding: 5px 15px;
+  font-size: 1rem;
+  margin: 15px auto;
+  vertical-align: middle;
+  display: block;
+  cursor: pointer;
+}
+
+form input[type="button"]:hover {
+  background-color: rgba(139, 195, 74, 0.25);
+  border: 1px solid #8bc34a;
 }

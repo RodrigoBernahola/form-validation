@@ -1,58 +1,82 @@
 import "./styles.css";
 
-function eventListener(inputElement) {
+function comprobarContraseñas() {
+  let res;
+
+  const pwd = document.querySelector("#pwd").value;
+  const rePwd = document.querySelector("#re-pwd").value;
+
+  pwd === rePwd ? (res = true) : (res = false);
+
+  return res;
+}
+
+function eventListenerBoton(event) {
+  let flag = true;
+  console.log(event);
+  const boton = event.target;
+  console.log(boton);
+  console.log(inputFields);
+  for (const inputElement of inputFields) {
+    if (!inputElement.validity.valid) {
+      console.log(
+        "Los campos requeridos no han sido completados de forma correcta",
+      );
+      flag = false;
+      break;
+    }
+  }
+
+  if (flag) {
+    let res = comprobarContraseñas();
+    if (res) {
+      alert("High Five");
+    } else {
+      alert("Las contraseñas no coinciden");
+    }
+  }
+}
+
+function showError(inputElement, spanElement) {
+  if (inputElement.validity.valueMissing) {
+    spanElement.textContent = "No puede dejar este campo vacío";
+  } else if (inputElement.validity.typeMismatch) {
+    spanElement.textContent =
+      "El valor ingresado no se corresponde con el formato esperado";
+  } else if (inputElement.validity.tooShort) {
+    spanElement.textContent =
+      "El valor ingresado no cumple con la longitud mínima requerida";
+  } else if (inputElement.validity.patternMismatch) {
+    spanElement.textContent = "No se cumple con el patrón requerido";
+  }
+
+  spanElement.className = "error activo";
+}
+
+function eventListener(event) {
+  console.log(event);
+  const inputElement = event.target;
+  const spanElement = inputElement.nextElementSibling;
   console.log(inputElement);
+  console.log(spanElement);
 
   if (inputElement.validity.valid) {
     console.log("Cumple con requisitos");
+    spanElement.textContent = "";
+    spanElement.className = "error";
   } else {
     console.log("No cumple con los requisitos");
+    showError(inputElement, spanElement);
   }
 }
 
 const inputFields = document.querySelectorAll("input");
+const botonAceptar = document.querySelector("button");
+
 console.log(inputFields);
 
 inputFields.forEach((inputElement) => {
-  document.addEventListener("input", eventListener(inputElement));
+  inputElement.addEventListener("input", eventListener);
 });
 
-// const body = document.body;
-// body.style.fontFamily = "Arial";
-
-// function showError() {
-//   console.log(emailInput);
-//   console.log(emailError);
-//   if (emailInput.validity.valueMissing) {
-//     console.log("poronga");
-//     emailError.textContent =
-//       "Debe introducir una dirección de correo electrónico";
-//   } else if (emailInput.validity.typeMismatch) {
-//     console.log("PORONGA");
-//     emailError.textContent =
-//       "El valor introducido debe ser una dirección de correo electrónico";
-//   }
-
-//   emailError.className = "error activo";
-// }
-
-// //Añadir eventlistener del tipo input a cada campo del form
-
-// const emailInput = document.querySelector("#email");
-// const emailError = document.querySelector("#email + span.error");
-// console.log(emailInput);
-// console.log(typeof emailInput);
-
-// emailInput.addEventListener("input", () => {
-//   //No se cumpln las restricciones del campo input email
-//   if (emailInput.validity.valid) {
-//     console.log("Se cumple");
-//     emailError.textContent = "";
-//     emailError.className("error");
-//   }
-//   //Se cumplen las restricciones del campo input email
-//   else {
-//     console.log("No se cumple");
-//     showError();
-//   }
-// });
+botonAceptar.addEventListener("click", eventListenerBoton);
