@@ -4,8 +4,8 @@
   "description": "Una practica simple para aplicar conceptos",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --mode development",
-    "build": "webpack --mode production",
+    "dev": "webpack serve --config webpack.dev.js --open",
+    "build": "webpack --config webpack.prod.js --mode production",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:src": "eslint src/",

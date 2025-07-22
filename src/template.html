@@ -6,6 +6,81 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app"></div>
+    <h1>Ejercicio de formulario</h1>
+
+    <form novalidate>
+      <p>
+        Los campos obligatorios van seguidos de
+        <strong><abbr title="required">*</abbr></strong
+        >.
+      </p>
+
+      <fieldset>
+        <legend>Información de su cuenta</legend>
+
+        <p>
+          <label for="email">
+            <span>Correo electónico:</span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input
+            type="email"
+            placeholder="example@email.com "
+            id="email"
+            autofocus
+            minlength="8"
+            required
+            name="usermail"
+          />
+          <span class="error" aria-live="polite"></span>
+        </p>
+
+        <p>
+          <label for="country">
+            <span>País:</span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input
+            type="text"
+            required
+            placeholder="Angola"
+            id="country"
+            name="country"
+          />
+        </p>
+
+        <p>
+          <label for="postal-code">
+            <span>Código Postal:</span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input
+            type="text"
+            required
+            placeholder="1000"
+            id="postal-code"
+            name="postal"
+          />
+        </p>
+
+        <p>
+          <label for="pwd">
+            <span>Contraseña:</span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input type="password" required id="pwd" name="password" />
+        </p>
+
+        <p>
+          <label for="re-pwd">
+            <span>Ingrese de nuevo la contraseña:</span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input type="password" required id="re-pwd" name="re-password" />
+        </p>
+
+        <p><button type="button">Enviar datos</button></p>
+      </fieldset>
+    </form>
   </body>
 </html>
